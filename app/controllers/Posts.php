@@ -33,6 +33,13 @@
       $this->view('posts/show', $data);
     }
 
+    public function getUsers(){
+      $users = $this->userModel->getAllUsers();
+
+      $here = $this->userModel->findUserByEmail('edo@gmail.com');
+      // return $here;
+      var_dump($users);
+    }
     // Add Post
     public function add(){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){

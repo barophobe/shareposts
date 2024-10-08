@@ -8,6 +8,18 @@
       redirect('welcome');
     }
 
+    public function getUsers(){
+      $users = $this->userModel->getAllUsers();
+      $data = [
+        'users' => $users
+      ];
+    //  echo '<pre>' . print_r($data, true) . '</pre>';
+    //  echo '<pre>' . var_dump($data['users'][0]->email) . '</pre>';
+    //  Exit();
+
+      $this->view('users/index', $data);
+    }
+
     public function register(){
       // Check if logged in
       if($this->isLoggedIn()){
@@ -117,7 +129,16 @@
           'email_err' => '',
           'password_err' => '',       
         ];
+   
+      //   $test =$this->userModel->findUserByEmail($data['email']);
+      //   // $test ='';
+      //   // password_verify($data['password'], $hashed_password);
 
+      //  $test1=  password_hash($data['password'], PASSWORD_DEFAULT);
+      //   echo '<pre>' . 'test' . var_dump($test, $data['password'],$test1) . '</pre>';
+      //   Exit();
+       
+  
         // Check for email
         if(empty($data['email'])){
           $data['email_err'] = 'Please enter email.';
@@ -128,6 +149,7 @@
           $data['name_err'] = 'Please enter name.';
         }
 
+ 
         // Check for user
         if($this->userModel->findUserByEmail($data['email'])){
           // User Found
@@ -135,7 +157,7 @@
           // No User
           $data['email_err'] = 'This email is not registered.';
         }
-
+     
         // Make sure errors are empty
         if(empty($data['email_err']) && empty($data['password_err'])){
 
@@ -198,4 +220,5 @@
         return false;
       }
     }
+
   }

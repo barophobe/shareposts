@@ -25,6 +25,12 @@
       }
     }
 
+    public function getAllUsers(){
+      $this->db->query("SELECT * FROM users");
+      $results = $this->db->resultSet();
+      return $results;
+    }
+
     // Find USer BY Email
     public function findUserByEmail($email){
       $this->db->query("SELECT * FROM users WHERE email = :email");
@@ -33,8 +39,10 @@
       $row = $this->db->single();
 
       //Check Rows
-      if($this->db->rowCount() > 0){
+      // if($this->db->rowCount() > 0){
+        if( !empty($row)){
         return true;
+        // return $row;
       } else {
         return false;
       }
@@ -48,6 +56,7 @@
       $row = $this->db->single();
       
       $hashed_password = $row->password;
+    
       if(password_verify($password, $hashed_password)){
         return $row;
       } else {

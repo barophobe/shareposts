@@ -11,32 +11,32 @@ class Database {
 	private $user = DB_USER;
 	private $pass = DB_PASS;
 	private $dbname = DB_NAME;
-	
+	private $port = DB_PORT; 
+
 	private $dbh;
 	private $error;
 	private $stmt;
 	
 	public function __construct() {
 		// Set DSN
-		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-		$options = array (
-			PDO::ATTR_PERSISTENT => true,
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION 
-		);
-
-		// Create a new PDO instanace
+		$dsn = 'sqlsrv:Server=' . $this->host . ';Database=' . $this->dbname;
+		//Create a new PDO instanace
 		try {
-			$this->dbh = new PDO ($dsn, $this->user, $this->pass, $options);
+			$this->dbh =new PDO($dsn, $this->user, $this->pass);
+			$this->dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
 		}		// Catch any errors
 		catch ( PDOException $e ) {
+			echo 'failed';
 			$this->error = $e->getMessage();
 		}
 	}
 	
 	// Prepare statement with query
 	public function query($query) {
+
 		$this->stmt = $this->dbh->prepare($query);
-	}
+	}	
 	
 	// Bind values
 	public function bind($param, $value, $type = null) {
@@ -76,9 +76,9 @@ class Database {
 	}
 	
 	// Get record row count
-	public function rowCount(){
-		return $this->stmt->rowCount();
-	}
+	// public function rowCount(){
+	// 	return $this->stmt->rowCount();
+	// }
 	
 	// Returns the last inserted ID
 	public function lastInsertId(){
