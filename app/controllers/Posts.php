@@ -33,6 +33,7 @@
       $this->view('posts/show', $data);
     }
 
+    
     public function getUsers(){
       $users = $this->userModel->getAllUsers();
 

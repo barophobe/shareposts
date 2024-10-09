@@ -7,6 +7,7 @@
   // Load Helpers
   require_once 'helpers/session_helper.php';
   require_once 'helpers/url_helper.php';
+  require 'C:/xampp/htdocs/shareposts/vendor/autoload.php';
 
   // Autoload Core Classes
   spl_autoload_register(function ($className) {

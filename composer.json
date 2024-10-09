@@ -1,0 +1,17 @@
+{
+    "name": "edoco/shareposts",
+    "autoload": {
+        "psr-4": {
+            "Edoco\\Shareposts\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "barophobe",
+            "email": "edoconnolly@protonmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "5.0.2"
+    }
+}
