@@ -1,8 +1,18 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
   <?php flash('post_message'); ?>
   <div class="row mb-3">
+
+    <div class="chartMenu">
+        <p>Chart JS 3.6.0</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
     <div class="col-md-6">
-    <h1>Posts</h1>
+    <h1 class="posterish">Posts</h1>
     </div>
     <div class="col-md-6">
       <a class="btn btn-primary pull-right" href="<?php echo URLROOT; ?>/posts/add"><i class="fa fa-pencil" aria-hidden="true"></i> Add Post</a>
