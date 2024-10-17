@@ -26,17 +26,20 @@ for (let i = 0; i < testStuff.length; ++i) {
 const data = {
   labels: labels,
   datasets: [{
-    data: testStuff
+    data: testStuff,
+    // borderColor:'#362625'
+    
+    borderColor: '#0485E0'
   }]
 };
 
 const annotation1 = {
   type: 'line',
-  borderColor: 'rgba(102, 102, 102, 0.5)',
+  borderColor:'#324E61',
   // borderColor: 'red',
   // borderDash: [6, 6],
   // borderDashOffset: 0,
-  borderWidth: 2,
+  borderWidth: 1,
   label: {
     display: true,
     backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -92,7 +95,7 @@ const annotation4 = {
     borderColor: '#E10705',
     // borderDash: [6, 6],
     // borderDashOffset: 0,
-    borderWidth: 2,
+    borderWidth: 3,
     label: {
       display: true,
       backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -112,7 +115,7 @@ const annotation4 = {
     borderColor: '#E10705',
     // borderDash: [6, 6],
     // borderDashOffset: 0,
-    borderWidth: 2,
+    borderWidth: 3,
     label: {
       display: true,
       backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -127,6 +130,7 @@ const annotation4 = {
   };
 
 const config = {
+
   type: 'line',
   data,
   options: {
@@ -134,7 +138,12 @@ const config = {
     scale: {
       y: {
         beginAtZero: false,
-        // grid: { display: false },
+        border:{
+          width:3
+        },
+        grid: { 
+          display: false
+         },
         max: 7.0,
         min: 2.0
       }
