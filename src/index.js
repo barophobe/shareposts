@@ -11,7 +11,7 @@ Chart.register(annotationPlugin);
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(window).load(function(e){
-    $('.posterish').css('color', 'red');
+    $('.posterish').css('color', 'blue');
 });
 
 
@@ -32,13 +32,14 @@ const data = {
 
 const annotation1 = {
   type: 'line',
-  borderColor: 'rgb(100, 149, 237)',
-  borderDash: [6, 6],
-  borderDashOffset: 0,
-  borderWidth: 3,
+  borderColor: 'rgba(102, 102, 102, 0.5)',
+  // borderColor: 'red',
+  // borderDash: [6, 6],
+  // borderDashOffset: 0,
+  borderWidth: 2,
   label: {
     display: true,
-    backgroundColor: 'rgb(100, 149, 237)',
+    backgroundColor: 'rgba(102, 102, 102, 0.5)',
     content: (ctx) => 'Average: ' + average(ctx).toFixed(2)
   },
   scaleID: 'y',
@@ -47,10 +48,11 @@ const annotation1 = {
 
 const annotation2 = {
   type: 'line',
-  borderColor: 'rgba(102, 102, 102, 0.5)',
+  // borderColor: 'rgba(102, 102, 102, 0.5)',
+  borderColor: '#DE7031',
   borderDash: [6, 6],
   borderDashOffset: 0,
-  borderWidth: 3,
+  borderWidth: 2,
   label: {
     display: true,
     backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -66,10 +68,11 @@ const annotation2 = {
 
 const annotation3 = {
   type: 'line',
-  borderColor: 'rgba(102, 102, 102, 0.5)',
+  // borderColor: 'rgba(102, 102, 102, 0.5)',
+  borderColor: '#DE7031',
   borderDash: [6, 6],
   borderDashOffset: 0,
-  borderWidth: 3,
+  borderWidth: 2,
   label: {
     display: true,
     backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -85,10 +88,11 @@ const annotation3 = {
 
 const annotation4 = {
     type: 'line',
-    borderColor: 'rgba(102, 102, 102, 0.5)',
-    borderDash: [6, 6],
-    borderDashOffset: 0,
-    borderWidth: 3,
+    // borderColor: 'rgba(102, 102, 102, 0.5)',
+    borderColor: '#E10705',
+    // borderDash: [6, 6],
+    // borderDashOffset: 0,
+    borderWidth: 2,
     label: {
       display: true,
       backgroundColor: 'rgba(102, 102, 102, 0.5)',
@@ -104,14 +108,15 @@ const annotation4 = {
 
   const annotation5 = {
     type: 'line',
-    borderColor: 'rgba(102, 102, 102, 0.5)',
-    borderDash: [6, 6],
-    borderDashOffset: 0,
-    borderWidth: 3,
+    // borderColor: 'rgba(102, 102, 102, 0.5)',
+    borderColor: '#E10705',
+    // borderDash: [6, 6],
+    // borderDashOffset: 0,
+    borderWidth: 2,
     label: {
       display: true,
       backgroundColor: 'rgba(102, 102, 102, 0.5)',
-      color: 'black',
+      color: 'red',
       content: (ctx) => (average(ctx) - (standardDeviation(ctx)) * 3).toFixed(2),
       position: 'end',
       rotation: 90,
@@ -125,13 +130,20 @@ const config = {
   type: 'line',
   data,
   options: {
+    tension: 0.1,
     scale: {
       y: {
         beginAtZero: false,
-        max: 8.0,
-        min: 1.0
+        // grid: { display: false },
+        max: 7.0,
+        min: 2.0
       }
     },
+    elements: {
+      point:{
+          radius: 3
+      }
+  },
     plugins: {
       annotation: {
         annotations: {

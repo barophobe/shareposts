@@ -9233,16 +9233,12 @@ a.text-dark:hover, a.text-dark:focus {
 .chartCard {
   width: 100vw;
   height: calc(100vh - 40px);
-  background: rgba(75, 192, 192, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .chartBox {
-  width: 700px;
+  width: 1200px;
   padding: 20px;
-  border-radius: 20px;
-  border: solid 3px rgb(75, 192, 192);
-  background: white;
 }

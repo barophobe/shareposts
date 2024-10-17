@@ -5,9 +5,9 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'js/bundle.js',
-        // path: __dirname + '/public',
-        path: path.resolve(__dirname, '/public'),
-        publicPath: '/public'
+        path: __dirname + '/public',
+        // path: path.resolve(__dirname, '/public'),
+        // publicPath: '/public'
     },
 mode: 'none',
     module: {
